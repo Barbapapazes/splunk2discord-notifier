@@ -1,8 +1,8 @@
-import { DiscordEmbed } from "../types/discord"
-import { SplunkNotification } from "../types/splunk"
+import type { DiscordEmbed } from '../types/discord'
+import type { SplunkNotification } from '../types/splunk'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ hint: string, title: string, message: string, event: SplunkNotification, link: string }>(event)
+  const body = await readBody<{ hint: string; title: string; message: string; event: SplunkNotification; link: string }>(event)
   const splunkEvent = body.event
 
   const webhook = useRuntimeConfig(event).discordWebhook
@@ -16,31 +16,29 @@ export default defineEventHandler(async (event) => {
     timestamp: new Date(splunkEvent.most_recent * 1000).toISOString(),
     fields: [
       {
-      name: "Tenant UID",
-      value: splunkEvent.tenant_uid,
-      inline: true,
+        name: 'Tenant UID',
+        value: splunkEvent.tenant_uid,
+        inline: true,
       },
       {
-        name: "Impact",
+        name: 'Impact',
         value: splunkEvent.impact,
         inline: true,
       },
       {
-        name: "Urgency",
+        name: 'Urgency',
         value: splunkEvent.urgency,
         inline: true,
       },
-    ]
+    ],
   }
 
   await $fetch(webhook, {
     method: 'POST',
     body: {
-      embeds: [embed]
-    }
+      embeds: [embed],
+    },
   })
-
-  return
 })
 
 function priorityToColor(priority: SplunkNotification['priority']): number {
