@@ -14,6 +14,16 @@ Make sure to install the dependencies:
 pnpm install
 ```
 
+You will also need to create a `.env` file with the following variables:
+
+```bash
+# Discord webhook URL
+DISCORD_WEBHOOK=
+```
+
+> **Note**
+> Do not forget to add it to your production environment as well.
+
 ## Development
 
 Start the development server on `http://localhost:3000`
@@ -21,6 +31,8 @@ Start the development server on `http://localhost:3000`
 ```bash
 pnpm run dev
 ```
+
+You can use [https://smee.io/](https://smee.io/) to test the application locally.
 
 ## Linting
 
