@@ -2,6 +2,10 @@
 
 Used to send Splunk alerts (via Alert Manager Enterprise) to Discord via a webhook.
 
+In the application Alert Manager Enterprise, you will need to configure the notificiation to `web` using the URL of this server.
+
+Splunk will send body to the server which will then be sent to Discord after some formatting to use Discord's embeds.
+
 ## Setup
 
 Make sure to install the dependencies:
