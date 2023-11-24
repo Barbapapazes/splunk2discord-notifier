@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.10.2",
+  "description": "Opinionated Nitro Starter",
+  "author": "Estéban Soubiran <e.soubiran25@gmail.com> (https://github.com/barbapapazes/)",
+  "license": "MIT",
+  "homepage": "https://github.com/barbapapazes/starter-nitro",
+  "keywords": [
+    "starter",
+    "nitro",
+    "unjs"
+  ],
+  "scripts": {
+    "prepare": "nitropack prepare",
+    "dev": "nitropack dev",
+    "build": "nitropack build",
+    "preview": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "1.1.1",
+    "eslint": "^8.53.0",
+    "nitropack": "^2.7.2"
+  }
+}
