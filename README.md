@@ -1,21 +1,12 @@
-# Opinionated Nitro Starter
+# Splunk2Discord Notifier
 
-**Ready to start your next project with Nitro?** This starter is a great place to start.
-
-Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more and do not forget to change the README.md and, LICENSE.md and package.json files.
-
-## Features
-
-- CI with GitHub Actions
-- [Autofix](https://autofix.ci) ready
-- Preconfigured ESLint with [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+Used to send Splunk alerts (via Alert Manager Enterprise) to Discord via a webhook.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# pnpm
 pnpm install
 ```
 
@@ -55,4 +46,28 @@ Locally preview production build:
 pnpm run preview
 ```
 
-Check out the [deployment documentation](https://nitro.unjs.io/deploy) for more information.
+## Deployment
+
+We use [pm2](https://pm2.keymetrics.io/) to manage the application in production.
+
+```bash
+# Start the application
+pm2 start ecosystem.config.cjs
+```
+
+```bash
+# Stop the application
+pm2 stop ecosystem.config.cjs
+```
+
+```bash
+# Restart the application
+pm2 restart ecosystem.config.cjs
+# Or reload the application using pm2 reload ...
+```
+
+You can also access the application logs using pm2:
+
+```bash
+pm2 logs
+```
