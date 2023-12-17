@@ -2,7 +2,7 @@ import type { DiscordEmbed } from '../types/discord'
 import type { SplunkNotification } from '../types/splunk'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ hint: string; title: string; message: string; event: SplunkNotification; link: string }>(event)
+  const body = await readBody<{ hint: string, title: string, message: string, event: SplunkNotification, link: string }>(event)
   const splunkEvent = body.event
 
   const webhook = useRuntimeConfig(event).discordWebhook
